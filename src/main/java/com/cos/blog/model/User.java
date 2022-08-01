@@ -15,6 +15,7 @@ import java.sql.Timestamp;
 @AllArgsConstructor
 @Builder
 @Entity
+// @DynamicInsert // insert시에 null인 필드를 제외시켜준다
 public class User {
 
     @Id
@@ -30,8 +31,10 @@ public class User {
     @Column(nullable = false, length = 50)
     private String email;
 
-    @ColumnDefault("'user'")
-    private String role;
+    //@ColumnDefault(" 'user' ")
+    // DB는 RoleType이라는게 없다.
+    @Enumerated(EnumType.STRING)
+    private RoleType role;
 
     @CreationTimestamp
     private Timestamp createDate;

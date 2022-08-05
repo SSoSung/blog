@@ -20,7 +20,7 @@ public class UserApiController {
     public ResponseDto<Integer> save(@RequestBody User user){
 
         user.setRole(RoleType.USER);
-        int result = userService.save(user);
-        return new ResponseDto<Integer>(HttpStatus.OK, result);
+        userService.회원가입(user);
+        return new ResponseDto<Integer>(HttpStatus.OK.value(), 1);
     }
 }

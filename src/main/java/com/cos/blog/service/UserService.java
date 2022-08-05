@@ -14,14 +14,7 @@ public class UserService {
     private UserReposiroty userReposiroty;
 
     @Transactional
-    public int save(User user){
-        try{
-            userReposiroty.save(user);
-            return 1;
-        }catch (Exception e){
-            e.printStackTrace();
-            System.out.println("UserService : 회원가입() : "+e.getMessage());
-        }
-        return -1;
+    public void 회원가입(User user){
+        userReposiroty.save(user);
     }
 }

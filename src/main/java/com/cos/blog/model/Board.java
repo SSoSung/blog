@@ -28,7 +28,6 @@ public class Board {
     @Lob // 대용량 데이터
     private String content;
 
-    @ColumnDefault("0")
     private int count; // 조회수
 
     @ManyToOne(fetch = FetchType.EAGER) // 즉시로딩, 반대 -> 지연로딩, 필요할때 가져오기
